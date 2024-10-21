@@ -1,0 +1,27 @@
+<div class="container">
+    <h2>Lista de Usuarios</h2>
+    <a [routerLink]="['/usuario/nuevo']" class="btn btn-success">Crear Nuevo Usuario</a>
+    <table class="table table-striped mt-3">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Teléfono</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let usuario of usuarios">
+                <td>{{ usuario.id }}</td>
+                <td>{{ usuario.nombre }}</td>
+                <td>{{ usuario.email }}</td>
+                <td>{{ usuario.telefono }}</td>
+                <td>
+                    <a [routerLink]="['/usuario/editar', usuario.id]" class="btn btn-primary">Editar</a>
+                    <button (click)="eliminarUsuario(usuario.id)" class="btn btn-danger btn-sm">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
